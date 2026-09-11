@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "visionleaf-ai"
+version = "0.1.0"
+description = "Professional Digital Image Processing & Machine Learning Workbench for plant disease analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Add a license of your choice before publishing publicly — see README.md" }
+authors = [
+    { name = "VisionLeaf AI contributors" },
+]
+keywords = [
+    "image-processing",
+    "computer-vision",
+    "streamlit",
+    "opencv",
+    "plant-pathology",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Kept identical in content to requirements.txt (that file remains the
+# source most contributors will actually `pip install -r` from — see
+# its own comments for version-pin rationale). Duplicated here rather
+# than read dynamically so `pip install .` works with zero extra
+# tooling; if the two ever drift, requirements.txt is the one to trust
+# and this list should be brought back in sync with it.
+dependencies = [
+    "streamlit>=1.40,<2.0",
+    "numpy>=1.26,<2.0",
+    "pandas>=2.2,<3.0",
+    "opencv-python-headless>=4.10,<5.0",
+    "scikit-image>=0.24,<0.25",
+    "Pillow>=10.4,<11.0",
+    "scikit-learn>=1.5,<2.0",
+    "joblib>=1.4,<2.0",
+    "plotly>=5.22,<6.0",
+    "PyYAML>=6.0,<7.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.2,<9.0",
+    "pytest-cov>=5.0,<6.0",
+]
+dev = [
+    "pyflakes>=3.2",
+    "mypy>=1.10",
+]
+
+[tool.setuptools.packages.find]
+include = ["visionleaf_ai*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.mypy]
+ignore_missing_imports = true

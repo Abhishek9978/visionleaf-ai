@@ -1,0 +1,29 @@
+# VisionLeaf AI — Runtime Configuration
+# Edit values here to change application behavior without touching code.
+# Environment variables prefixed VISIONLEAF_ override any value below,
+# e.g. VISIONLEAF_APP__DEBUG=true overrides app.debug.
+
+app:
+  name: "VisionLeaf AI"
+  version: "0.1.0"
+  debug: false
+  learning_mode_default: false
+
+paths:
+  assets_dir: "assets"
+  sample_images_dir: "assets/samples"
+  models_dir: "assets/models"
+  logs_dir: "logs"
+
+logging:
+  level: "INFO"                # DEBUG | INFO | WARNING | ERROR | CRITICAL
+  log_to_file: true
+  log_filename: "visionleaf.log"
+  max_bytes: 1048576           # 1 MB per log file before rotation
+  backup_count: 3
+  format: "%(asctime)s | %(levelname)-8s | %(name)s | %(message)s"
+
+image:
+  max_upload_size_mb: 10
+  allowed_extensions: [".png", ".jpg", ".jpeg", ".bmp", ".tiff"]
+  max_dimension_px: 4096
